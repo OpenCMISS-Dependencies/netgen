@@ -83,6 +83,12 @@ SET( CMAKE_MFC_FLAG 0 )
 # suitable for cmgui
 INCLUDE( nglib-cmgui.cmake )
 
+IF( ${CMAKE_SYSTEM_NAME} STREQUAL "Linux" AND ${CMAKE_SYSTEM_PROCESSOR} STREQUAL "x86_64" )
+	INCLUDE( nglib-cmgui-fpic.cmake )
+	SET_SOURCE_FILES_PROPERTIES(${NGLIB_SRCS}
+		PROPERTIES COMPILE_FLAGS "-fPIC")
+ENDIF( ${CMAKE_SYSTEM_NAME} STREQUAL "Linux" AND ${CMAKE_SYSTEM_PROCESSOR} STREQUAL "x86_64" )
+
 # Configure header file
 CONFIGURE_FILE( config.h.cmake
 	${CMAKE_CURRENT_BINARY_DIR}/config/ng-config.h @ONLY )
