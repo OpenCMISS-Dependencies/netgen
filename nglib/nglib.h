@@ -24,10 +24,14 @@
 // Philippose - 14.02.2009
 // Modifications for creating a DLL in Windows
 #ifdef WIN32
-   #ifdef NGLIB_EXPORTS
-      #define DLL_HEADER   __declspec(dllexport)
+   #ifdef NGLIB_SHARED_LIB
+      #ifdef NGLIB_EXPORTS
+         #define DLL_HEADER   __declspec(dllexport)
+      #else
+         #define DLL_HEADER   __declspec(dllimport)
+      #endif
    #else
-      #define DLL_HEADER   __declspec(dllimport)
+      #define DLL_HEADER 
    #endif
 #else
    #define DLL_HEADER 

@@ -88,7 +88,7 @@ void Transformation3d :: CalcInverse (Transformation3d & inv) const
 {
   static DenseMatrix a(3), inva(3);
   static Vector b(3), sol(3);
-  int i, j;
+  int j;
   
   for (int i = 0; i < 3; i++)
     {

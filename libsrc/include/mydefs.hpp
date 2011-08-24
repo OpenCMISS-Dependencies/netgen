@@ -14,18 +14,12 @@
 
 // #define DEBUG
 
-// Philippose - 31/01/2009
-// Hack for the Windows Version
-// in Linux, "PACKAGE_VERSION" is replaced 
-// in the configure/make phases, with the 
-// right version number
 #ifdef WIN32
-#define PACKAGE_VERSION "4.9.11"
-#endif
-
-
-#ifdef WIN32
-    #define DLL_HEADER   __declspec(dllexport)
+    #ifdef NGLIB_EXPORTS
+        #define DLL_HEADER   __declspec(dllexport)
+    #else
+        #define DLL_HEADER
+    #endif
 #else
     #define DLL_HEADER 
 #endif
