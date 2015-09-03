@@ -62,7 +62,7 @@ IF( ${CMAKE_SYSTEM_NAME} STREQUAL "Linux" AND ${CMAKE_SYSTEM_PROCESSOR} STREQUAL
 ENDIF( ${CMAKE_SYSTEM_NAME} STREQUAL "Linux" AND ${CMAKE_SYSTEM_PROCESSOR} STREQUAL "x86_64" )
 
 # Configure header file
-CONFIGURE_FILE( config.h.cmake
+configure_file(config.h.cmake
 	${CMAKE_CURRENT_BINARY_DIR}/config/ng-config.h @ONLY )
 
 # Add configured header file to header file search path
